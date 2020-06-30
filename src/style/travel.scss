@@ -1,5 +1,7 @@
-*{
-    box-sizing: border-box;
+@import './normalize.scss';
+
+body{
+    font-size: 14px;
 }
 
 .SpotCard{
@@ -10,5 +12,52 @@
     margin-bottom: 20px;
     &:nth-last-child(1){
         margin-bottom: 0;
+    }
+}
+
+.TravelSpot{
+    width: 100%;
+    max-width: 1080px;
+    padding: 10px 15px;
+    margin: 0 auto;
+
+    @media (max-width: 1080px) {
+        padding: 10px;
+    }
+
+    .TravelSpotInfo{
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+        padding: 20px 10px;
+    }  
+    
+    img{
+        width: 100%;
+    }
+
+    h1{
+        text-align: center;
+    }
+
+    .infoRow{
+        display: flex;
+        margin-bottom: 15px;
+        .infoRow__title{
+            flex: none;
+            width: 100px;
+        }
+
+        .infoRow__info{
+            flex: 1;
+        }
+    }
+
+    .openTime{
+        line-height: 20px;
+    }
+
+    .openTime, .introduction{
+        white-space: pre-wrap;
+        margin: 15px 0;
     }
 }
