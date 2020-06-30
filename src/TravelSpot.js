@@ -38,6 +38,13 @@ const TravelSpot = () => {
 		[ history ]
 	);
 
+	// const renderOfficialSite=useCallback(()=>{
+	// 	const {official_site}=spotInfo;
+	// 	if(official_site)
+	// }, [])
+
+	console.log("---------------notFound-------------", notFound)
+
 	if (notFound) return <NotFoundView />;
 	if (loading) return <div className="warningTemplate"><span>LOADING ...</span></div>
 	return (

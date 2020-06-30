@@ -1,6 +1,7 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, SET_SPOT_INFO, NOT_FOUND, CLEAR_SPOT_INFO, LOAD_MORE } from '../action/travelAction';
 
 const travelListInit = {
+	originList: [],
 	list: [],
 	displayList: [],
 	total: 0,
@@ -23,12 +24,12 @@ export function travelListReducer(state = travelListInit, action) {
 				loading: true
 			});
 		case FETCH_SUCCESS:
-			const displayList = action.data.data.splice(0, 30)
 			return Object.assign({}, state, {
 				...state,
-				list: action.data.data,
-				displayList,
-                total: action.data.total,
+				originList: action.originList,
+				list: action.list,
+				displayList: action.displayList,
+                total: action.total,
 				loading: false
 			});
 		case FETCH_FAILED:

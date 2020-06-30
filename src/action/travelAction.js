@@ -11,11 +11,13 @@ export function fetchStart() {
 		type: FETCH_START
 	};
 }
-
-export function fetchSuccess(data) {
+export function fetchSuccess(data, originList, list, displayList) {
 	return {
 		type: FETCH_SUCCESS,
-		data
+		total: data.total,
+		originList,
+		list,
+		displayList
 	};
 }
 
@@ -42,11 +44,15 @@ export function fetchSetting(id) {
 				return data.json();
 			})
 			.then((res) => {
-				dispatch(fetchSuccess(res));
+				const originList =JSON.parse(JSON.stringify(res.data));
+				const list= res.data;
+				const displayList = list.splice(0, 30)
+				dispatch(fetchSuccess(res, originList, list, displayList));
+
 				if(id) {
-					const infoIndex = res.data.map(spot=> spot.id).indexOf(parseInt(id, 10))
+					const infoIndex = originList.map(spot=> spot.id).indexOf(parseInt(id, 10))
 					if(infoIndex!== -1){
-						const info = res.data[infoIndex]
+						const info = originList[infoIndex]
 						dispatch({type: SET_SPOT_INFO,info})
 					}else{
 						dispatch({type: NOT_FOUND})
