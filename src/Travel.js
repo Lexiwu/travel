@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { connect, useDispatch, useSelector, shallowEqual } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './style/travel.scss';
-import { fetchSetting } from './action/travelAction';
+import { fetchSetting, loadMore } from './action/travelAction';
 
 // 1. 分為兩個頁面
 // - / - 列表頁：呈現 API response 之各個景點資訊
@@ -13,7 +13,6 @@ import { fetchSetting } from './action/travelAction';
 
 const Travel = () => {
 	const dispatch = useDispatch();
-
 	const { travelListReducer } = useSelector(
 		(state) => ({
 			travelListReducer: state.travelListReducer
@@ -21,32 +20,52 @@ const Travel = () => {
 		shallowEqual
 	);
 
+	const {loading, list, total, error, displayList }=travelListReducer;
+
+
 	useEffect(
 		() => {
-			dispatch(fetchSetting(travelListReducer.pageCount));
+			dispatch(fetchSetting());
 		},
-		[ dispatch, travelListReducer.pageCount ]
+		[ dispatch]
 	);
+
+	const more = useCallback(()=>{
+		dispatch(loadMore())
+	}, [dispatch,])
+
+	const renderLoadMore=useCallback(()=>{
+		if(list.length!==0){
+			return(
+				<button onClick={()=> more()}>LOAD MORE</button>
+			)
+		}
+	}, [list.length, more])
 
 	const renderTravelSpotCard = useCallback(
 		() => {
-			console.log(travelListReducer);
-			const { list } = travelListReducer;
-			if (list.length !== 0) {
-				return list.map((info) => {
+			if (displayList.length !== 0) {
+				return displayList.map((info) => {
 					return <SpotCard key={info.name} info={info} />;
 				});
 			}
 		},
-		[ travelListReducer ]
+		[ displayList ]
 	);
-
+	if (loading) return <div className="warningTemplate"><span>LOADING ...</span></div>
+	if(error) return <div className="warningTemplate"><span>請稍後再試</span></div>
 	return (
 		<main>
-			<h1>旅遊資訊</h1>
 
 			<section className="travelSpotList">
+				<h1>
+					景點列表
+					<span>共{total}筆</span>
+				</h1>
+
 				<ul>{renderTravelSpotCard()}</ul>
+
+				{renderLoadMore()}
 			</section>
 		</main>
 	);
@@ -61,8 +80,14 @@ const SpotCard = ({ info }) => {
 	};
 	return (
 		<div className='SpotCard' onClick={() => toSpot()}>
-			<h2>{name}</h2>
-			<address>{address}</address>
+			<div className="SpotCard__img">
+			</div>	
+			<div className="SpotCard__info">
+				<h2>{name}</h2>
+				<address>{address}</address>
+			</div>	
+
+			
 		</div>
 	);
 };
