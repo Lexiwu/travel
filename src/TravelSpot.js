@@ -38,12 +38,69 @@ const TravelSpot = () => {
 		[ history ]
 	);
 
-	// const renderOfficialSite=useCallback(()=>{
-	// 	const {official_site}=spotInfo;
-	// 	if(official_site)
-	// }, [])
+	const renderOfficialSite=useCallback(()=>{
+		const {official_site}=spotInfo;
+		if(official_site){
+			return(
+				<div className="infoRow">
+				<div className="infoRow__title">官網：</div>
+				<div className="infoRow__info">
+					<a href={spotInfo.official_site} rel="noopener noreferrer" target="_blank">
+						{spotInfo.official_site}
+					</a>
+				</div>
+			</div>
+			)
+		}
+	}, [spotInfo])
 
-	console.log("---------------notFound-------------", notFound)
+	const renderFaceBook=useCallback(()=>{
+		const {facebook}=spotInfo;
+		if(facebook){
+			return(
+				<div className="infoRow">
+				<div className="infoRow__title">FaceBook：</div>
+				<div className="infoRow__info">
+					<a href={spotInfo.facebook} rel="noopener noreferrer" target="_blank">
+						{spotInfo.facebook}
+					</a>
+				</div>
+			</div>
+			)
+		}
+	}, [spotInfo])
+
+	const renderUrl=useCallback(()=>{
+		const {url}=spotInfo;
+		if(url){
+			return(
+				<div className="infoRow">
+						<div className="infoRow__title">詳細資訊：</div>
+						<div className="infoRow__info">
+							<a href={spotInfo.url} rel="noopener noreferrer" target="_blank">
+								{spotInfo.url}
+							</a>
+						</div>
+					</div>
+
+			)
+		}
+	}, [spotInfo])
+
+	const renderOpenTime=useCallback(()=>{
+		const {open_time}=spotInfo;
+		if(open_time){
+			return(
+				<div className="infoRow">
+					<div className="infoRow__title">營業時間：</div>
+					<div className="infoRow__info">
+						<div className="openTime">{spotInfo.open_time}</div>
+					</div>
+				</div>
+			)
+		}
+	}, [spotInfo])
+
 
 	if (notFound) return <NotFoundView />;
 	if (loading) return <div className="warningTemplate"><span>LOADING ...</span></div>
@@ -65,38 +122,15 @@ const TravelSpot = () => {
 							<address>{spotInfo.address}</address>
 						</div>
 					</div>
-					<div className="infoRow">
-						<div className="infoRow__title">官網：</div>
-						<div className="infoRow__info">
-							<a href={spotInfo.official_site} rel="noopener noreferrer" target="_blank">
-								{spotInfo.official_site}
-							</a>
-						</div>
-					</div>
+					{renderOfficialSite()}
+					
+					{renderFaceBook()}
 
-					<div className="infoRow">
-						<div className="infoRow__title">FaceBook：</div>
-						<div className="infoRow__info">
-							<a href={spotInfo.facebook} rel="noopener noreferrer" target="_blank">
-								{spotInfo.facebook}
-							</a>
-						</div>
-					</div>
-					<div className="infoRow">
-						<div className="infoRow__title">詳細資訊：</div>
-						<div className="infoRow__info">
-							<a href={spotInfo.url} rel="noopener noreferrer" target="_blank">
-								{spotInfo.url}
-							</a>
-						</div>
-					</div>
+					{renderUrl()}
 
-					<div className="infoRow">
-						<div className="infoRow__title">營業時間：</div>
-						<div className="infoRow__info">
-							<div className="openTime">{spotInfo.open_time}</div>
-						</div>
-					</div>
+
+					{renderOpenTime()}
+					
 					
 					<div className="introduction">{spotInfo.introduction}</div>
 				
