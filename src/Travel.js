@@ -20,13 +20,13 @@ const Travel = () => {
 		shallowEqual
 	);
 
-	const {loading, pageCount, list}=travelListReducer;
+	const {loading, list}=travelListReducer;
 
 	useEffect(
 		() => {
-			dispatch(fetchSetting(pageCount));
+			dispatch(fetchSetting());
 		},
-		[ dispatch, pageCount ]
+		[ dispatch]
 	);
 
 	const renderTravelSpotCard = useCallback(

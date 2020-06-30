@@ -24,16 +24,11 @@ export function fetchFailed() {
 	};
 }
 
-export function fetchSetting(pageCount, id) {
-	const params = {};
-	if (pageCount) params.page = pageCount;
-
-	const urlParams = new URLSearchParams(Object.entries(params));
+export function fetchSetting(id) {
 
 	return async function(dispatch) {
 		dispatch(fetchStart());
-
-		await fetch('https://travelwebapi.azurewebsites.net//api/TaipeiTravel/zh-tw/Attractions/All?' + urlParams, {
+		await fetch('./info.json', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

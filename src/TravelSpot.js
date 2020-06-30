@@ -19,13 +19,13 @@ const TravelSpot = () => {
 
 	useEffect(
 		() => {
-			dispatch(fetchSetting(travelListReducer.pageCount, id));
+			dispatch(fetchSetting(id));
 
 			return()=>{
 				dispatch(clearSpotInfo())
 			}
 		},
-		[ dispatch, travelListReducer.pageCount, id ]
+		[ dispatch, id ]
 	);
 
 	useEffect(
