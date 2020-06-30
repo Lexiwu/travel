@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import {travelListReducer} from './reducer/travelReducer';
+import {travelListReducer, travelSpotReducer} from './reducer/travelReducer';
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -11,7 +11,8 @@ import Travel from './Travel';
 import TravelSpot from './TravelSpot';
 
 const rootReducer = combineReducers({
-	travelListReducer
+	travelListReducer,
+	travelSpotReducer
   });
 
 

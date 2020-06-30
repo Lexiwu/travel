@@ -13,7 +13,6 @@ import { fetchSetting } from './action/travelAction';
 
 const Travel = () => {
 	const dispatch = useDispatch();
-
 	const { travelListReducer } = useSelector(
 		(state) => ({
 			travelListReducer: state.travelListReducer
@@ -21,25 +20,28 @@ const Travel = () => {
 		shallowEqual
 	);
 
+	const {loading, list}=travelListReducer;
+
 	useEffect(
 		() => {
-			dispatch(fetchSetting(travelListReducer.pageCount));
+			dispatch(fetchSetting());
 		},
-		[ dispatch, travelListReducer.pageCount ]
+		[ dispatch]
 	);
 
 	const renderTravelSpotCard = useCallback(
 		() => {
-			console.log(travelListReducer);
-			const { list } = travelListReducer;
+			console.log(list);
 			if (list.length !== 0) {
 				return list.map((info) => {
 					return <SpotCard key={info.name} info={info} />;
 				});
 			}
 		},
-		[ travelListReducer ]
+		[ list ]
 	);
+
+	if(loading) return <div>LOADING ....</div>
 
 	return (
 		<main>
