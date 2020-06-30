@@ -1,63 +1,116 @@
 @import './normalize.scss';
 
-body{
+$cardShadow: rgba(0, 0, 0, 0.2);
+
+html {
     font-size: 14px;
+
 }
 
-.SpotCard{
+body {
+    font-family: "PingFang TC", "STHeiti Light", "Microsoft JhengHei", "Helvetica", "Arial", "Verdana", "sans-serif";
+    -webkit-font-smoothing: antialiased;
+    background-color: #f9f9f9;
+}
+
+.SpotCard {
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px 0px $cardShadow;
     cursor: pointer;
     margin-bottom: 20px;
-    &:nth-last-child(1){
+
+    &:nth-last-child(1) {
         margin-bottom: 0;
     }
 }
 
-.TravelSpot{
+.TravelSpot {
     width: 100%;
     max-width: 1080px;
     padding: 10px 15px;
     margin: 0 auto;
 
     @media (max-width: 1080px) {
-        padding: 10px;
+        padding: 0;
     }
 
-    .TravelSpotInfo{
+    .TravelSpotInfo {
         border-radius: 5px;
-        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 1px 1px 5px 0px $cardShadow;
         padding: 20px 10px;
-    }  
-    
-    img{
+        background-color: #fff;
+        @media (max-width: 1080px) {
+            width: 90%;
+            margin: 0 auto 40px;
+        }
+    }
+
+    img {
         width: 100%;
     }
 
-    h1{
+    h1 {
         text-align: center;
+        font-size: 2rem;
     }
 
-    .infoRow{
+    >p{
+        padding: 10px 20px;
+    }
+
+    button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 10px 5px 0;
+            border-color: transparent #000000 transparent transparent;
+            vertical-align: middle;
+            margin-right: 3px;
+        }
+    }
+
+    address {
+        font-style: normal;
+    }
+
+    .TravelSpotInfoDetail {
+        padding: 10px 20px;
+
+    }
+
+    .infoRow {
         display: flex;
         margin-bottom: 15px;
-        .infoRow__title{
+
+        .infoRow__title {
             flex: none;
             width: 100px;
         }
 
-        .infoRow__info{
+        .infoRow__info {
             flex: 1;
         }
     }
 
-    .openTime{
+    .openTime {
         line-height: 20px;
     }
 
-    .openTime, .introduction{
+    .openTime,
+    .introduction {
         white-space: pre-wrap;
+    }
+
+    .introduction {
         margin: 15px 0;
     }
 }
