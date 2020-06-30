@@ -31,13 +31,6 @@ const TravelSpot = () => {
 		[ dispatch, id ]
 	);
 
-	useEffect(
-		() => {
-			console.log('id---', id);
-		},
-		[ id ]
-	);
-
 	const backToList = useCallback(
 		() => {
 			history.push('/');
