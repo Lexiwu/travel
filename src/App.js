@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import {travelListReducer} from './reducer/travelReducer';
+
+// import logo from './logo.svg';
+// import './App.css';
+import Travel from './Travel';
+import TravelSpot from './TravelSpot';
+
+const rootReducer = combineReducers({
+	travelListReducer
+  });
+
+
+const store = createStore(
+	rootReducer,
+	applyMiddleware(ReduxThunk)
+  );
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Provider store={store}>
+			<Router>
+				<Switch>
+					<Route exact path="/">
+						<Travel />
+					</Route>
+					{/* <Route path='/:id'>
+						<TravelSpot />
+					</Route> */}
+					<Route path='/:id' component={TravelSpot} />
+				</Switch>
+			</Router>
+		</Provider>
+	);
 }
 
 export default App;

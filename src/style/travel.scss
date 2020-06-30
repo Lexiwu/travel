@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+.SpotCard{
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-bottom: 20px;
+    &:nth-last-child(1){
+        margin-bottom: 0;
+    }
+}

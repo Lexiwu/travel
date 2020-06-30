@@ -1,0 +1,198 @@
+{
+    "total": 417,
+    "data": [
+        {
+            "id": 2215,
+            "name": "飛越台灣5D飛行劇場",
+            "name_zh": null,
+            "open_status": 1,
+            "introduction": "微風南山內的i-Ride TAIPEI具有懸空式動感座椅、巨型球幕影片，以及五感特效的模擬飛行劇院，其中的飛越台灣5D飛行劇場讓您坐著也能飛越台灣各地鳥瞰台灣的獨特的地理景觀及欣賞風俗人文。",
+            "open_time": "週日至週三 11：30 ~ 21：30\r\n週四至週六(含例假日前夕) 11：30 ~ 22：00\r\n※每日最終售票時間為營業結束前1小時。\r\n(特殊時段請依現場及官網公告為主)",
+            "zipcode": "110",
+            "distric": "信義區",
+            "address": "110 臺北市信義區松智路17號",
+            "tel": "02-27238098",
+            "fax": "",
+            "email": "info@brogentglobal.com",
+            "months": "01,07,02,08,03,09,04,10,05,11,06,12",
+            "nlat": 25.03431,
+            "elong": 121.56596,
+            "official_site": "http://www.iridetaipei.com/",
+            "facebook": "https://www.facebook.com/iRideTAIPEI/?ref=bookmarks",
+            "ticket": "",
+            "remind": "",
+            "staytime": "",
+            "modified": "2020-06-29 16:26:04 +08:00",
+            "url": "https://www.travel.taipei/zh-tw/attraction/details/2215",
+            "category": [
+                {
+                    "id": 499,
+                    "name": "其他"
+                }
+            ],
+            "target": [],
+            "service": [],
+            "friendly": [],
+            "images": [
+                {
+                    "src": "https://www.travel.taipei/image/180983",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180979",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180980",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180981",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180982",
+                    "subject": "",
+                    "ext": ".jpg"
+                }
+            ],
+            "files": [],
+            "links": []
+        },
+        {
+            "id": 2212,
+            "name": "微風南山",
+            "name_zh": null,
+            "open_status": 1,
+            "introduction": "微風集團2019年初開幕於信義區的百貨公司，是棟商場與辦公大樓結合的建築，內部商場集結了不少知名精品、各國美食料理及高樓景觀餐廳，同時也引進i-Ride Taipei飛行劇院，使微風南山成為了信義區流行時尚、血拚玩樂的必遊之地。",
+            "open_time": "• 百貨\r\n週日 ~ 週三 11:00 ~ 21:30\r\n週四 ~ 週六 (含例假日前夕) 11:00 ~ 22:00\r\n\r\n• 超市\r\n週一 ~ 週五 10:00 ~ 同百貨閉店時間 週六 ~ 週日 09:00 ~ 同百貨閉店時間",
+            "zipcode": "110",
+            "distric": "信義區",
+            "address": "110 臺北市信義區松智路17號",
+            "tel": "02-66389999",
+            "fax": "",
+            "email": "customer@breeze.com.tw",
+            "months": "01,07,02,08,03,09,04,10,05,11,06,12",
+            "nlat": 25.03431,
+            "elong": 121.56596,
+            "official_site": "http://www.breezecenter.com/",
+            "facebook": "https://www.facebook.com/breezecenter2001",
+            "ticket": "",
+            "remind": "",
+            "staytime": "",
+            "modified": "2020-06-29 16:04:43 +08:00",
+            "url": "https://www.travel.taipei/zh-tw/attraction/details/2212",
+            "category": [
+                {
+                    "id": 499,
+                    "name": "其他"
+                }
+            ],
+            "target": [],
+            "service": [
+                {
+                    "id": 144,
+                    "name": "餐飲"
+                },
+                {
+                    "id": 145,
+                    "name": "購物"
+                }
+            ],
+            "friendly": [],
+            "images": [
+                {
+                    "src": "https://www.travel.taipei/image/180975",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180976",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180977",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/180978",
+                    "subject": "",
+                    "ext": ".jpg"
+                }
+            ],
+            "files": [],
+            "links": []
+        },
+        {
+            "id": 2259,
+            "name": "成美右岸河濱公園",
+            "name_zh": null,
+            "open_status": 1,
+            "introduction": "成美右岸河濱公園位於基隆河 成功橋至麥帥一橋間(內湖側)，每到假日隔幾公尺就有一群各自聚精會神調弄手裡器具的人，仔細看看有電動遙控車、數位單眼相機&hellip;等，而且是大人玩得比小孩 還起勁！公園裡有許多的運動設施，包含網球場、籃球場、壘球練習場、溜冰場、單槓、體健設施&hellip;等，提供給臺北市民有更多的運動空間。\r\n\r\n串聯成美左、右岸公園的「彩 虹橋」，橋身鮮紅，造型獨特，宛如一道彩虹橫跨在河道上。橋下自行車道寬敞，河堤護牆爬滿綠藤，牆基也呈現波浪狀，與彩虹橋呼應。彩虹橋兩端設有電梯直上 堤頂，方便肢障者、老人家及嬰兒車等不必勞累攀爬，無障礙的設計相當貼心，樓梯中間設有自行車牽引道，讓騎士們也可輕鬆通行兩端。\r\n\r\n在成美右岸河濱公園還可以拍到101大樓全景，藍天白雲；入夜之後，基隆河水色波光粼粼，畫面合諧，是許多攝影愛好者聚集的地方。\r\n\r\n(資料來源:臺北市政府工務局水利工程處)",
+            "open_time": "24H",
+            "zipcode": "114",
+            "distric": "內湖區",
+            "address": "114 臺北市內湖區潭美街",
+            "tel": "",
+            "fax": "",
+            "email": "",
+            "months": "01,07,02,08,03,09,04,10,05,11,06,12",
+            "nlat": 25.06014,
+            "elong": 121.59187,
+            "official_site": "",
+            "facebook": "",
+            "ticket": "",
+            "remind": "",
+            "staytime": "",
+            "modified": "2020-06-29 15:22:36 +08:00",
+            "url": "https://www.travel.taipei/zh-tw/attraction/details/2259",
+            "category": [
+                {
+                    "id": 12,
+                    "name": "單車遊蹤"
+                },
+                {
+                    "id": 16,
+                    "name": "戶外踏青"
+                },
+                {
+                    "id": 17,
+                    "name": "藍色水路"
+                }
+            ],
+            "target": [],
+            "service": [],
+            "friendly": [],
+            "images": [
+                {
+                    "src": "https://www.travel.taipei/image/181498",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/181499",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/181500",
+                    "subject": "",
+                    "ext": ".jpg"
+                },
+                {
+                    "src": "https://www.travel.taipei/image/181501",
+                    "subject": "",
+                    "ext": ".jpg"
+                }
+            ],
+            "files": [],
+            "links": []
+        }
+    ]
+}
