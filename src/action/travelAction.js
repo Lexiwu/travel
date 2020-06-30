@@ -4,6 +4,7 @@ export const FETCH_FAILED = 'FETCH_FAILED';
 export const SET_SPOT_INFO = 'SET_SPOT_INFO';
 export const NOT_FOUND = 'NOT_FOUND';
 export const CLEAR_SPOT_INFO = 'CLEAR_SPOT_INFO';
+export const LOAD_MORE='LOAD_MORE';
 
 export function fetchStart() {
 	return {
@@ -58,6 +59,19 @@ export function fetchSetting(id) {
 				console.log('err---', err);
 			});
 	};
+}
+
+export function loadMore(){
+	return (dispatch, getState)=>{
+		const {list, displayList} = getState().travelListReducer;
+		const moreList = list.splice(0, 30)
+		
+		dispatch({
+			type: LOAD_MORE,
+			displayList: displayList.concat(moreList),
+			list
+		})
+	}
 }
 
 export function clearSpotInfo(){

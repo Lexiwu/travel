@@ -45,8 +45,8 @@ const TravelSpot = () => {
 		[ history ]
 	);
 
-	if (notFound) return <div>NOT FOUND</div>;
-	if (loading) return <div>LOADING ....</div>;
+	if (notFound) return <NotFoundView />;
+	if (loading) return <div className="warningTemplate"><span>LOADING ...</span></div>
 	return (
 		<div className="TravelSpot">
 			<p>
@@ -105,5 +105,27 @@ const TravelSpot = () => {
 		</div>
 	);
 };
+
+const NotFoundView = () =>{
+	const history = useHistory();
+
+	useEffect(()=>{
+		let backToList = setTimeout(()=>{
+			history.push('/');
+		}, 3000)
+		return()=>{
+			clearTimeout(backToList)
+		}
+	},[history])
+
+	return(
+		<div className="warningTemplate">
+			<div>
+				<p>NOT FOUND</p>	
+				<p>3秒後導回列表頁</p>	
+			</div>
+		</div>
+	)
+}
 
 export default TravelSpot;

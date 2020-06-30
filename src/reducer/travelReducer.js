@@ -1,12 +1,13 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, SET_SPOT_INFO, NOT_FOUND, CLEAR_SPOT_INFO } from '../action/travelAction';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILED, SET_SPOT_INFO, NOT_FOUND, CLEAR_SPOT_INFO, LOAD_MORE } from '../action/travelAction';
 
 const travelListInit = {
 	list: [],
+	displayList: [],
 	total: 0,
 	loading: false,
     error: false,
 	pageCount: 1,
-	spotId: null
+	spotId: null,
 };
 
 const travelSpotInit={
@@ -22,9 +23,11 @@ export function travelListReducer(state = travelListInit, action) {
 				loading: true
 			});
 		case FETCH_SUCCESS:
+			const displayList = action.data.data.splice(0, 30)
 			return Object.assign({}, state, {
 				...state,
-                list: action.data.data,
+				list: action.data.data,
+				displayList,
                 total: action.data.total,
 				loading: false
 			});
@@ -34,7 +37,12 @@ export function travelListReducer(state = travelListInit, action) {
 				error: true,
 				loading: false
 			});
-	
+		case LOAD_MORE:
+			return Object.assign({}, state, {
+				...state,
+				displayList: action.displayList,
+				list: action.list,
+			})
 		default:
 			return state;
 	}
