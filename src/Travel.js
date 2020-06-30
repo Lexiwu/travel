@@ -22,6 +22,7 @@ const Travel = () => {
 
 	const {loading, list, total, error, displayList }=travelListReducer;
 
+
 	useEffect(
 		() => {
 			dispatch(fetchSetting());
