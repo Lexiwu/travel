@@ -122,7 +122,7 @@ const SpotCard = ({ info }) => {
 
 	const renderTicket= ()=>{
 		if(ticket){
-			return<span>Free</span>
+			return<span className="freeTag">Free</span>
 		}
 	}
 
