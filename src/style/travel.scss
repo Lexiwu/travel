@@ -2,6 +2,7 @@
 
 $cardShadow: rgba(0, 0, 0, 0.2);
 $breakPoint: 1080px;
+$mainBlueColor: rgba(72, 155, 218, 1);
 
 html {
     font-size: 14px;
@@ -12,6 +13,7 @@ body {
     font-family: "PingFang TC", "STHeiti Light", "Microsoft JhengHei", "Helvetica", "Arial", "Verdana", "sans-serif";
     -webkit-font-smoothing: antialiased;
     background-color: #f9f9f9;
+    color: #595959;
 }
 
 address {
@@ -20,6 +22,10 @@ address {
 
 ul {
     padding: 0;
+
+    li{
+        list-style: none;
+    }
 }
 
 a{
@@ -32,6 +38,7 @@ button {
     border: none;
     padding: 0;
     cursor: pointer;
+    color: rgba(89, 89, 89, .4);
 }
 
 .warningTemplate {
@@ -40,6 +47,21 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.goTop{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $mainBlueColor;
+    opacity: .5;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    &:before{
+        content: "Top";
+        color: #fff;
+    }
 }
 
 .travelSpotList {
@@ -55,9 +77,32 @@ button {
 
     h1{
         font-size: 2rem;
+        position: relative;
+        margin-bottom: 50px;
+
+        &:before, &:after{
+            content:"";
+            position: absolute;
+            bottom: -10px;
+            height: 3px;
+            border-radius: 1.5px;
+            background-color: $mainBlueColor;
+        }
+
+        &:before{
+            width: 150px;
+            left: 0;
+        }
+
+        &:after{
+            width: 20px;
+            left: 160px;
+        }
+
         span{
             font-size: 1rem;
             margin-left: 20px;
+            color: #aaa;
         }
     }
 
@@ -81,6 +126,11 @@ button {
     overflow: hidden;
     min-height: 120px;
 
+    &:hover{
+        transform: translate(1px, 1px);
+        border: 1px solid $mainBlueColor;
+    }
+
     &:nth-last-child(1) {
         margin-bottom: 0;
     }
@@ -88,11 +138,22 @@ button {
     h2 {
         margin: 0 0 20px;
         font-size: 2rem;
-
+        line-height: 2.2rem;
 
         @media (max-width: $breakPoint) {
             font-size: 1.5rem;
+            margin-top: 25px;
+        }
 
+        span{
+            font-size: 11px;
+            line-height: 14px;
+            background-color: $mainBlueColor;
+            color: #fff;
+            border-radius: 2px;
+            display: inline-block;
+            padding: 2px 5px;
+            margin-left: 5px;
         }
     }
 
@@ -113,8 +174,51 @@ button {
     .SpotCard__info {
         flex: 1;
         padding: 10px;
-        align-self: center;
         line-height: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .distric{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 10px;
+        font-size: 12px;
+        background-color: $mainBlueColor;
+        color: #fff;
+        border-bottom-left-radius: 2px;
+
+        @media (max-width: $breakPoint) {
+            left: 0;
+            right: auto;
+            width: 100%;
+            border-bottom-left-radius: 0;
+
+        }
+    }
+
+    .category{
+        margin-top: auto;
+        font-size: 12px;
+        color: #aaa;
+        text-align: right;
+        li{
+            display: inline-block;
+            &:after{
+                content: "、";
+            }
+
+            &:nth-last-child(1){
+                &:after{
+                    content: "";
+                }
+            }
+        }
     }
 }
 
