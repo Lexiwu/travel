@@ -20,6 +20,8 @@ const TravelSpot = () => {
 	const { loading } = travelListReducer;
 	const { notFound, spotInfo } = travelSpotReducer;
 
+	console.log("spotInfo----", spotInfo)
+
 	useEffect(
 		() => {
 			dispatch(fetchSetting(id));
@@ -101,6 +103,44 @@ const TravelSpot = () => {
 		}
 	}, [spotInfo])
 
+	const renderService=useCallback(()=>{
+		const {service}=spotInfo;
+
+		if(service && service.length!==0){
+			return<ul className="service">
+				{
+					service.map((item)=><li key={item.id}>{item.name}</li>)
+				}
+			</ul>
+		}
+
+	}, [spotInfo])
+
+	const renderTicket =useCallback(()=>{
+		const {ticket}=spotInfo;
+
+		if(ticket){
+			return <span className="freeTag">Free</span>
+		}
+
+	}, [spotInfo])
+
+	const renderCategory = useCallback(() => {
+		const {category}=spotInfo;
+
+		if (category && category.length !== 0) {
+			return (
+				<div className="category">
+					<ul>
+						{category.map((item) => {
+							return <li key={item.id}>{item.name}</li>;
+						})}
+					</ul>
+				</div>
+			);
+		}
+	}, [spotInfo]);
+
 
 	if (notFound) return <NotFoundView />;
 	if (loading) return <div className="warningTemplate"><span>LOADING ...</span></div>
@@ -110,18 +150,26 @@ const TravelSpot = () => {
 				<button onClick={() => backToList()}>回列表</button>
 			</p>
 			<div className="TravelSpotInfo">
-				<h1>{spotInfo.name}</h1>
 				<figure>
 					<img src={View} alt="" />
 				</figure>
+				<h1>
+					{spotInfo.name}
+					{renderTicket()}
+				</h1>
+
 
 				<div className="TravelSpotInfoDetail">
+				{renderCategory()}
+
 					<div className="infoRow">
 						<div className="infoRow__title">地址：</div>
 						<div className="infoRow__info">
 							<address>{spotInfo.address}</address>
 						</div>
 					</div>
+
+
 					{renderOfficialSite()}
 					
 					{renderFaceBook()}
@@ -131,7 +179,7 @@ const TravelSpot = () => {
 
 					{renderOpenTime()}
 					
-					
+					{renderService()}
 					<div className="introduction">{spotInfo.introduction}</div>
 				
 				</div>		
