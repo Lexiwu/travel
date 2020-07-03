@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './style/travel.scss';
-import { fetchSetting, loadMore } from './action/travelAction';
+import { fetchSetting, loadMore, reset } from './action/travelAction';
 
 // 1. 分為兩個頁面
 // - / - 列表頁：呈現 API response 之各個景點資訊
@@ -20,6 +20,11 @@ const Travel = () => {
 		shallowEqual
 	);
 	const { loading, list, total, error, displayList, originList } = travelListReducer;
+
+	useEffect(()=>{
+		window.history.scrollRestoration && (window.history.scrollRestoration = 'auto');
+
+	}, [])
 
 	useEffect(
 		() => {
