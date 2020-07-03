@@ -6,6 +6,7 @@ export const NOT_FOUND = 'NOT_FOUND';
 export const CLEAR_SPOT_INFO = 'CLEAR_SPOT_INFO';
 export const LOAD_MORE='LOAD_MORE';
 
+
 export function fetchStart() {
 	return {
 		type: FETCH_START
@@ -29,8 +30,10 @@ export function fetchFailed() {
 
 export function fetchSetting(id) {
 
-	return async function(dispatch) {
+	return async function(dispatch, getState) {
 		dispatch(fetchStart());
+		const {originList, list, displayList} = getState().travelListReducer;
+
 		await fetch('./info.json', {
 			method: 'GET',
 			headers: {
@@ -44,10 +47,18 @@ export function fetchSetting(id) {
 				return data.json();
 			})
 			.then((res) => {
-				const originList =JSON.parse(JSON.stringify(res.data));
-				const list= res.data;
-				const displayList = list.splice(0, 30)
-				dispatch(fetchSuccess(res, originList, list, displayList));
+				if(originList.length === 0){
+
+					const originList =JSON.parse(JSON.stringify(res.data));
+					const list= res.data;
+					const displayList = list.splice(0, 30)
+
+					dispatch(fetchSuccess(res, originList, list, displayList));
+
+				}else{
+
+					dispatch(fetchSuccess(res, originList, list, displayList));
+				}
 
 				if(id) {
 					const infoIndex = originList.map(spot=> spot.id).indexOf(parseInt(id, 10))
